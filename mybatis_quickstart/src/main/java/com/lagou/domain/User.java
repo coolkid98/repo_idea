@@ -59,4 +59,8 @@ public class User {
                 ", address='" + address + '\'' +
                 '}';
     }
+    
+    public void run(){
+           
+    }
 }
