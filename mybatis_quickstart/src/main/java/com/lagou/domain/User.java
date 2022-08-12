@@ -63,4 +63,8 @@ public class User {
     public void run(){
            
     }
+    
+    public void test02(){
+        
+    }
 }
