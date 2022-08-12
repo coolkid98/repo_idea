@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="user" class="com.lagou.domain.User">
+        <property name="username" value="zhangfei"></property>
+        <property name="age" value="38"></property>
+    </bean>
+    <bean id="userDao" class="com.lagou.impl.UserDaoImpl" >
+        <property name="username" value="chenTao"></property>
+        <property name="age" value="24"></property>
+        <property name="list">
+            <list>
+                <value>aaa</value>
+                <ref bean="user"></ref>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>bbb</value>
+                <ref bean="user"></ref>
+            </set>
+        </property>
+        <property name="array">
+            <array>
+                <value>bbb</value>
+                <ref bean="user"></ref>
+            </array>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="k1" value="ddd"></entry>
+                <entry key="k2" value-ref="user"></entry>
+            </map>
+        </property>
+        <property name="properties">
+            <props>
+                <prop key="k1">v1</prop>
+                <prop key="k2">v2</prop>
+                <prop key="k3">v3</prop>
+                <prop key="k4">v4</prop>
+            </props>
+        </property>
+    </bean>
+
+    <bean id="UserService" class="com.lagou.service.impI.UserSerivceImpl">
+
+        <property name="userDao" ref="userDao"></property>
+    </bean>
+    <import resource="applicationContext-user.xml"></import>
+</beans>
